@@ -31,3 +31,5 @@ Set objShortcutUrl2 = WshShell.CreateShortcut(strDesktopPath2 & "\e-Citrix (New)
 objShortcutUrl2.TargetPath = "http://gaincityehr:81/e-Cirtrix2K/frmDefault.aspx"
 objShortcutUrl2.IconLocation = "c:\windows\system32\shell32.dll,92"
 objShortcutUrl2.Save
+
+'This line is added on 26/2/2016 by Ted Tran
