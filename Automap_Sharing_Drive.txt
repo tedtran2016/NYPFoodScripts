@@ -1,0 +1,33 @@
+On Error Resume Next 
+
+Set objNetwork1 = WScript.CreateObject("WScript.Network")
+Set WshShell = CreateObject("WScript.Shell")
+strMyDesktop = WshShell.SpecialFolders("Desktop")
+
+'Delete eCitrix icon
+Set strShortcut123 = strMyDesktop & "\e-Cirtrix 2000.lnk"
+Set Delete = CreateObject("Scripting.FileSystemObject")
+If Delete.FileExists(strShortcut123) then
+Delete.DeleteFile(strShortcut123)
+End if
+
+'Delete eFrontier icon
+Set strShortcut124 = strMyDesktop & "\eFrontier.lnk"
+Set Delete = CreateObject("Scripting.FileSystemObject")
+If Delete.FileExists(strShortcut124) then
+Delete.DeleteFile(strShortcut124)
+End if
+
+'Create eFrontier shortcut to desktop
+strDesktopPath1 = WshShell.SpecialFolders("Desktop")
+Set objShortcutUrl3 = WshShell.CreateShortcut(strDesktopPath1 & "\eFrontier (New).lnk")
+objShortcutUrl3.TargetPath = "http://gaincityehr/fehr/eHR/eHRDefault.aspx"
+objShortcutUrl3.IconLocation = "c:\windows\system32\shell32.dll,160"
+objShortcutUrl3.Save
+
+'Create e-Citrix 2000 shortcut to desktop
+strDesktopPath2 = WshShell.SpecialFolders("Desktop")
+Set objShortcutUrl2 = WshShell.CreateShortcut(strDesktopPath2 & "\e-Citrix (New).lnk")
+objShortcutUrl2.TargetPath = "http://gaincityehr:81/e-Cirtrix2K/frmDefault.aspx"
+objShortcutUrl2.IconLocation = "c:\windows\system32\shell32.dll,92"
+objShortcutUrl2.Save
